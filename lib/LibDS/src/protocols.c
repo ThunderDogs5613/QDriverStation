@@ -39,6 +39,11 @@
 #define RECV_PRECISION 50 /* Update the watchdogs every 50 milliseconds */
 
 /*
+ * Used to re-assing to 'empty' structure
+ */
+static const DS_Protocol EmptyProtocol;
+
+/*
  * Protocol data
  */
 static DS_Protocol protocol;
@@ -377,7 +382,7 @@ static void close_protocol()
     /* Reset sent/recv packets */
     DS_ResetFMSPackets();
     DS_ResetRadioPackets();
-    DS_ResetRadioPackets();
+    DS_ResetRobotPackets();
 
     /* Create notification string */
     char* name = DS_StrToChar (&protocol.name);
